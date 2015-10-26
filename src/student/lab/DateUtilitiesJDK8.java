@@ -97,7 +97,11 @@ public class DateUtilitiesJDK8 {
      * @throws IllegalArgumentException 
      */
     public LocalDate formatLocalDateFromPattern(String stringDate,String pattern) throws IllegalArgumentException {
-      
+      if (stringDate == null || stringDate.isEmpty()) {
+            throw new IllegalArgumentException("Error: date string cannot be null or empty");
+        }else if(pattern == null || pattern.isEmpty()){
+            throw new IllegalArgumentException("Error: pattern cannot be null or empty");
+        }
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern(pattern);
         LocalDate localdate = LocalDate.parse(stringDate,dtf);
         return localdate;
@@ -111,7 +115,11 @@ public class DateUtilitiesJDK8 {
      * @throws IllegalArgumentException 
      */
     public LocalDateTime formatLocalDateTimeFromPattern(String stringDate,String pattern) throws IllegalArgumentException {
-      
+      if (stringDate == null || stringDate.isEmpty()) {
+            throw new IllegalArgumentException("Error: date string cannot be null or empty");
+        }else if(pattern == null || pattern.isEmpty()){
+            throw new IllegalArgumentException("Error: pattern cannot be null or empty");
+        }
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern(pattern);
         LocalDateTime localdate = LocalDateTime.parse(stringDate,dtf);
         return localdate;
@@ -129,6 +137,12 @@ public class DateUtilitiesJDK8 {
      */
     public int dateDiff(DateUnit unit,LocalDateTime firstDate, LocalDateTime secondDate)
             throws IllegalArgumentException {
+        
+        if (unit == null) {
+            throw new IllegalArgumentException("Error: must put in a unit of time");
+        }else if(firstDate == null || secondDate == null){
+            throw new IllegalArgumentException("Error: must put in a valid date");
+        }
         
         Duration diff = Duration.between(firstDate, secondDate);
         int value;
