@@ -65,7 +65,7 @@ public class DateUtilitiesJDK8 {
      * @return date as a string
      * @throws IllegalArgumentException 
      */
-    public String toString(LocalDate date) throws IllegalArgumentException {
+    public String toStringLocalDate(LocalDate date) throws IllegalArgumentException {
         if (date == null) {
             throw new IllegalArgumentException("Error: date argument cannot be null");
         }
@@ -80,7 +80,7 @@ public class DateUtilitiesJDK8 {
      * @return date as a string
      * @throws IllegalArgumentException 
      */
-    public String toString(LocalDateTime date) throws IllegalArgumentException {
+    public String toStringLocalDateTime(LocalDateTime date) throws IllegalArgumentException {
         if (date == null) {
             throw new IllegalArgumentException("Error: date argument cannot be null");
         }
