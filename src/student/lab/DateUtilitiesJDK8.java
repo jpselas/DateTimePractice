@@ -39,6 +39,10 @@ public class DateUtilitiesJDK8 {
             return milliseconds;
         }
     }
+    /**Allows you to use the utility methods in the main
+     * creates instance of DateUtilitiesJDK8
+     * @return instance 
+     */
     public static DateUtilitiesJDK8 getInstance() {
         if (instance == null) {
             instance = new DateUtilitiesJDK8();
@@ -46,13 +50,21 @@ public class DateUtilitiesJDK8 {
 
         return instance;
     }
-    
+    /**Gets the local time 
+     * 
+     * @return the time now in the LocalTime format
+     */
     public LocalTime now() {
         return LocalTime.now();
     }
     
     
-    
+    /**
+     * Takes in LocalDate object and prints out the date
+     * @param date
+     * @return date as a string
+     * @throws IllegalArgumentException 
+     */
     public String toString(LocalDate date) throws IllegalArgumentException {
         if (date == null) {
             throw new IllegalArgumentException("Error: date argument cannot be null");
@@ -62,7 +74,12 @@ public class DateUtilitiesJDK8 {
     }
     
     
-    
+    /**
+     * Takes in LocalDateTime object and prints out the date
+     * @param date
+     * @return date as a string
+     * @throws IllegalArgumentException 
+     */
     public String toString(LocalDateTime date) throws IllegalArgumentException {
         if (date == null) {
             throw new IllegalArgumentException("Error: date argument cannot be null");
@@ -72,7 +89,13 @@ public class DateUtilitiesJDK8 {
     }
     
     
-    
+    /**
+     * Takes in a date in string format and a pattern to format the string 
+     * @param stringDate - string of a date 
+     * @param pattern - String of the pattern you want the date to formatted to ex) MM-dd-yyyy
+     * @return date object formatted into new pattern
+     * @throws IllegalArgumentException 
+     */
     public LocalDate formatLocalDateFromPattern(String stringDate,String pattern) throws IllegalArgumentException {
       
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern(pattern);
@@ -80,6 +103,13 @@ public class DateUtilitiesJDK8 {
         return localdate;
     }
     
+    /**
+     * Takes in a date in string format and a pattern to format the string 
+     * @param stringDate - string of a date 
+     * @param pattern - String of the pattern you want the date to formatted to ex) MM-dd-yyyy
+     * @return date object formatted into new pattern
+     * @throws IllegalArgumentException 
+     */
     public LocalDateTime formatLocalDateTimeFromPattern(String stringDate,String pattern) throws IllegalArgumentException {
       
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern(pattern);
@@ -89,7 +119,14 @@ public class DateUtilitiesJDK8 {
     
     
     
-    
+    /**
+     * Method takes two dates and finds the amount of days,hours,minutes,seconds between them
+     * @param unit - enum of either  DAY,HOUR,MINUTE,SECOND
+     * @param firstDate - the first date 
+     * @param secondDate - the second date
+     * @return amount of days,hours,minutes,seconds between them
+     * @throws IllegalArgumentException 
+     */
     public int dateDiff(DateUnit unit,LocalDateTime firstDate, LocalDateTime secondDate)
             throws IllegalArgumentException {
         
