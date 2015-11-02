@@ -183,7 +183,7 @@ public class DateUtilitiesJDK8 {
         LocalDateTime secondDate = LocalDateTime.now();
         secondDate = dateUtilities.formatLocalDateTimeFromPattern("10-27-2015 16:00","M-dd-yyyy HH:mm");
         
-        System.out.println(dateUtilities.dateDiff(DateUnit.HOUR, firstDate, secondDate)+ " Hours");
+        System.out.println(dateUtilities.dateDiff(DateUnit.SECOND, firstDate, secondDate)+ " seconds");
         
     }
 }
